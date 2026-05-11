@@ -1,0 +1,12 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}{{ post.titulo }}{% endblock %}
+
+{% block content %}
+    <article>
+        <h2>{{ post.titulo }}</h2>
+        <p><small>Publicado em: {{ post.criado_em }}</small></p>
+        <p>{{ post.conteudo }}</p>
+    </article>
+    <a href="/">← Voltar</a>
+{% endblock %}

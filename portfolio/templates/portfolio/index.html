@@ -1,0 +1,31 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Home - Portfólio{% endblock %}
+
+{% block content %}
+    <h2>Bem-vindo ao meu Portfólio!</h2>
+
+    <section>
+        <h3>Posts</h3>
+        {% for post in posts %}
+            <article>
+                <h4><a href="{% url 'post_detalhe' post.slug %}">{{ post.titulo }}</a></h4>
+                <p>{{ post.criado_em }}</p>
+            </article>
+        {% empty %}
+            <p>Nenhum post ainda.</p>
+        {% endfor %}
+    </section>
+
+    <section>
+        <h3>Projetos</h3>
+        {% for projeto in projetos %}
+            <article>
+                <h4>{{ projeto.titulo }}</h4>
+                <p>{{ projeto.descricao }}</p>
+            </article>
+        {% empty %}
+            <p>Nenhum projeto ainda.</p>
+        {% endfor %}
+    </section>
+{% endblock %}
